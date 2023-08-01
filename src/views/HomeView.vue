@@ -18,12 +18,13 @@ export default {
     const p = ref(null)
 
     
-    let name = "mario"
-    let age = 30
+    const name = ref("mario")
+    const  age = ref(30)
     
     const handleClick =  () => {
       console.log(p, p.value)
       p.value.classList.add('test')
+      name.value= "more test"
 
     }
 
