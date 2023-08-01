@@ -22,7 +22,9 @@ export default {
     let age = 30
     
     const handleClick =  () => {
-      console.log(p)
+      console.log(p, p.value)
+      p.value.classList.add('test')
+
     }
 
 
