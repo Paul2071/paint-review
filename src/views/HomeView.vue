@@ -6,6 +6,9 @@
     <button @click="handleClick">click me</button>
     <button @click="age++">add to age</button>
     <input type="text" v-model="name">
+
+    <p>{{ reftest.name }} - {{ reftest.age }}</p>
+    <button @click="updateRefTest">updateRefTest</button>
   </div>
 </template>
 
@@ -30,8 +33,13 @@ export default {
 
     }
 
+    const reftest = ref({name: "holly", age: "30"})
 
-    return {  name, age, handleClick, p }
+    const updateRefTest = () => {
+      reftest.value.age = 40
+    }
+
+    return {  name, age, handleClick, p, reftest, updateRefTest }
   }
   
 }
