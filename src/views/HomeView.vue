@@ -8,13 +8,16 @@
     <input type="text" v-model="name">
 
     <p>{{ reftest.name }} - {{ reftest.age }}</p>
+    
     <button @click="updateRefTest">updateRefTest</button>
+
+    <p>{{ reactiveTest.name }} - {{ reactiveTest.age }}</p>
   </div>
 </template>
 
 <script>
 
-import {ref} from "vue"
+import {ref, reactive} from "vue"
 
 export default {
   name: 'HomeView',
@@ -33,13 +36,14 @@ export default {
 
     }
 
-    const reftest = ref({name: "holly", age: "30"})
+    const reftest = ref({name: "paul", age: "36"})
+    const reactiveTest = reactive({ name: "heather", age: 28})
 
     const updateRefTest = () => {
       reftest.value.age = 40
     }
 
-    return {  name, age, handleClick, p, reftest, updateRefTest }
+    return {  name, age, handleClick, p, reftest, updateRefTest, reactiveTest }
   }
   
 }
