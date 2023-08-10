@@ -12,6 +12,8 @@
     <button @click="updateRefTest">updateRefTest</button>
 
     <p>{{ reactiveTest.name }} - {{ reactiveTest.age }}</p>
+
+    <button @click="updateReactiveTest">updateRefTest</button>
   </div>
 </template>
 
@@ -42,8 +44,13 @@ export default {
     const updateRefTest = () => {
       reftest.value.age = 40
     }
+    const updateReactiveTest = () => {
+      reactiveTest.age = 40
+    }
 
-    return {  name, age, handleClick, p, reftest, updateRefTest, reactiveTest }
+    
+
+    return {  name, age, handleClick, p, reftest, updateRefTest, reactiveTest, updateReactiveTest }
   }
   
 }
