@@ -1,0 +1,5 @@
+the standard way to display an array of names is: <div v-for="name in names" :key="name">
+      {{ name }}
+  </div
+
+  names is the const that contains the array, name is the element in the array
