@@ -6,13 +6,13 @@
   <div v-for="name in matchingNames" :key="name">
       {{ name }}
   </div>
-  
+  <button @click=handleClick>stop watching</button>
 </div>
   <router-view/>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, watchEffect } from 'vue'
 
 export default {
   name: 'Home',
@@ -20,11 +20,27 @@ export default {
     const search = ref('')
     const names = ref( ['Stormfiend ', 'Celestium Blue', 'Gutrippa Flesh ', 'Aeldari Emerald'])
 
+    const stopWatch = watch(search, ()=> {
+      console.log('watch function fired')
+    })
+
+   const stopEffect = watchEffect(( )=>{
+      console.log('watcheffect', search.value)
+    })
+
+
     const matchingNames = computed( ()=> {
       return names.value.filter( (name)=> name.includes(search.value))
     })
+
+    const handleClick = () => {
+      stopWatch(
+      
+      )
+      stopEffect()
+    }
     
-    return { names, search, matchingNames }
+    return { names, search, matchingNames, handleClick }
   }, 
 }
 </script>
